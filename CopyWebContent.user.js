@@ -13,23 +13,28 @@
 // @require      https://code.jquery.com/jquery-3.4.1.min.js
 // ==/UserScript==
 
-function executeCopy (text) {
-    let input = document.createElement('textarea')
-    document.body.appendChild(input)
-    input.value = text
-    input.select()
-    document.execCommand('copy')
-    input.remove()
-  }
+    function executeCopyRich (text) {
+        function listener(e) {
+            e.clipboardData.setData("text/html", text);
+            e.clipboardData.setData("text/plain", text);
+            e.preventDefault();
+        }
+        document.addEventListener("copy", listener);
+        document.execCommand("copy");
+        document.removeEventListener("copy", listener);
+    }
   
   
-  function process() {
-      console.log("process: Ctrl+Shift+c");
-      $( "[class*='content']" ).each(function(i,ele) {
-          var text = ele.innerHTML;
-          executeCopy(text);
-      });
-  }
+    function process() {
+        console.log("process: Ctrl+Shift+c");
+        var str = "";
+        $( "[class*='content']" ).each(function(i,ele) {
+            console.log(ele.className);
+            var text = ele.innerHTML;
+            str += text;
+        });
+        executeCopyRich(str);
+    }
   
   (function() {
       'use strict';
