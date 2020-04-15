@@ -8,7 +8,7 @@
 // @license      GPL-3.0-or-later; http://www.gnu.org/licenses/gpl-3.0.txt
 // @homepage     https://github.com/sowrov/CopyWebContent
 // @supportURL   https://github.com/sowrov/CopyWebContent/issues
-// @icon         https://raw.githubusercontent.com/sowrov/CopyWebContent/master/icon/copy.png
+// @icon         https://raw.githubusercontent.com/sowrov/CopyWebContent/master/icon/copy32x32.png
 // @include      *
 // @require      https://code.jquery.com/jquery-3.4.1.min.js
 // ==/UserScript==
