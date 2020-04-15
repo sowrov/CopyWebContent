@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CopyWebContent
 // @namespace    https://github.com/sowrov/CopyWebContent
-// @version      0.1
+// @version      0.2
 // @description  A Script to copy all the content sections of a webpage, press Ctrl+shift+c to do that
 // @author       Sowrov
 // @copyright    2020+, Sowrov
