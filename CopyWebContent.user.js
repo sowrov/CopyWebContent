@@ -13,35 +13,55 @@
 // @require      https://code.jquery.com/jquery-3.4.1.min.js
 // ==/UserScript==
 
-
-(function() {
-    'use strict';
-    let keysPressed = {};
-    document.addEventListener('keydown', (event) => {
-        switch(event.key) {
-            case "Control":
-            case "Shift":
-                console.log("down "+event.key);
-                keysPressed[event.key] = true;
-            break;
-        }
-    });
-
-    document.addEventListener('keyup', (event) => {
-        switch(event.key) {
-            case "Control":
-            case "Shift":
-                console.log("up "+event.key);
-                keysPressed[event.key]=false;
-            break;
-        }
-
-        switch(event.code) {
-            case "KeyC":
-                if(keysPressed["Control"] && keysPressed["Shift"]) {
-                    console.log("Ctrl+Shift+c");
-                }
-            break;
-        }
-    });
-})();
+function executeCopy (text) {
+    let input = document.createElement('textarea')
+    document.body.appendChild(input)
+    input.value = text
+    input.select()
+    document.execCommand('copy')
+    input.remove()
+  }
+  
+  
+  function process() {
+      console.log("process: Ctrl+Shift+c");
+      $( "[class*='content']" ).each(function(i,ele) {
+          var text = ele.innerHTML;
+          executeCopy(text);
+      });
+  }
+  
+  (function() {
+      'use strict';
+      let keysPressed = {};
+      document.addEventListener('keydown', (event) => {
+          switch(event.key) {
+              case "Control":
+              case "Shift":
+                  console.log("down "+event.key);
+                  keysPressed[event.key] = true;
+              break;
+          }
+      });
+  
+      document.addEventListener('keyup', (event) => {
+          switch(event.key) {
+              case "Control":
+              case "Shift":
+                  console.log("up "+event.key);
+                  keysPressed[event.key]=false;
+              break;
+          }
+  
+          switch(event.code) {
+              case "KeyC":
+                  if(keysPressed["Control"] && keysPressed["Shift"]) {
+                      process();
+                  }
+              break;
+          }
+      });
+  
+  
+  })();
+  
