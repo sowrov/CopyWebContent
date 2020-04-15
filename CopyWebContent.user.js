@@ -2,7 +2,7 @@
 // @name         CopyWebContent
 // @namespace    https://github.com/sowrov/CopyWebContent
 // @version      0.2
-// @description  A Script to copy all the content sections of a webpage, press Ctrl+shift+c to do that
+// @description  A Script to copy all the content sections of a webpage, press Ctrl+shift+c to copy
 // @author       Sowrov
 // @copyright    2020+, Sowrov
 // @license      GPL-3.0-or-later; http://www.gnu.org/licenses/gpl-3.0.txt
